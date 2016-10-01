@@ -25,7 +25,7 @@ PGM=mocktest
 # Uncomment the one you want below (the first one is the default):
 #    MACHINE = apple2
 #    MACHINE = apple2-dos33
-#    MACHINE = apple2-system
+MACHINE = apple2-system
 #    MACHINE = apple2-loader
 #    MACHINE = apple2-reboot
 #    MACHINE = apple2enh

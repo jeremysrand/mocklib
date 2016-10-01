@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		9D16BCE21D9E070B005EE214 /* speech.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = speech.s; sourceTree = "<group>"; };
 		9DB3C98C1D84A11600395532 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		9DB3C98D1D84A11600395532 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		9DB3C98F1D84A11600395532 /* AppleCommander.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = AppleCommander.jar; path = make/AppleCommander.jar; sourceTree = "<group>"; };
@@ -17,6 +18,8 @@
 		9DB3C9941D84A11600395532 /* prodos_template.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; name = prodos_template.dsk; path = make/prodos_template.dsk; sourceTree = "<group>"; };
 		9DB3C9951D84A11600395532 /* tail.mk */ = {isa = PBXFileReference; lastKnownFileType = text; name = tail.mk; path = make/tail.mk; sourceTree = "<group>"; };
 		9DB3C9961D84A11600395532 /* V2Make.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; name = V2Make.scpt; path = make/V2Make.scpt; sourceTree = "<group>"; };
+		9DB3C99C1D84A21E00395532 /* mockingboard.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mockingboard.c; sourceTree = "<group>"; };
+		9DB3C99D1D84A21E00395532 /* mockingboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mockingboard.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -31,6 +34,9 @@
 			isa = PBXGroup;
 			children = (
 				9DB3C98C1D84A11600395532 /* main.c */,
+				9DB3C99C1D84A21E00395532 /* mockingboard.c */,
+				9DB3C99D1D84A21E00395532 /* mockingboard.h */,
+				9D16BCE21D9E070B005EE214 /* speech.s */,
 				9DB3C98D1D84A11600395532 /* Makefile */,
 				9DB3C98E1D84A11600395532 /* make */,
 			);
@@ -223,6 +229,7 @@
 				9DB3C99B1D84A11600395532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
