@@ -85,6 +85,7 @@ _busy:          .byte   $00
 
 
 .proc _interr
+    PHA
     TXA             ;SAVE REGISTERS
     PHA
     TYA
@@ -120,7 +121,7 @@ _busy:          .byte   $00
     TAY
     PLA
     TAX
-    LDA $45
+    PLA
     RTI             ;RETURN FROM INTERRUPT
 
 @L1:
