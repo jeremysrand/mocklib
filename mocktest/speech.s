@@ -7,13 +7,11 @@
 ;
 
 
-    .export _setupSpeech
+    .export _setupSpeech, _numIRQs, _speechData, _speechLen, _busy
+;    .interruptor speechIRQ
 
 
-TABPTR  := $F9           ;DATA POINTER
 OUTPTR  := $FB           ;START OF DATA POINTER
-ENDPTR  := $FD           ;END OF DATA POINTER
-BUSY    := $FF           ;BUSY FLAG
 IRQL    := $03FE         ;INTERRUPT VECTOR, LOW BYTE
 IRQH    := $03FF         ;INTERRUPT VECTOR, HIGH BYTE
 BASE    := $C440         ;FIRST SPEECH CHIP
@@ -29,6 +27,15 @@ IFR     := $C48D         ;INTERRUPT FLAG REG-6522
 IER     := $C48E
 
 
+.DATA
+speechIRQ:      .byte   $60, <_interr, >_interr   ; RTS plus two dummy bytes
+_numIRQs:       .byte   $00
+_speechData:    .byte   $00, $00
+_speechLen:     .byte   $00, $00
+endptr:         .byte   $00, $00
+_busy:          .byte   $00
+
+
 .CODE
 
 .proc _setupSpeech
@@ -37,36 +44,31 @@ IER     := $C48E
     STA IRQL        ;TO POINT TO INTERRUPT
     LDA #>_interr   ;SERVICE ROUTINE
     STA IRQH
+;    LDA #$4C        ; JMP opcode
+;    STA speechIRQ
     LDA #$00
     STA DDRA
     STA DDRB
 
-    LDA TABPTR+1    ;GET HIGH ADDRESS OF DATA
-    STA OUTPTR+1    ;STORE IN WORK POINTER
-    LDX TABPTR      ;GET LOW ADDRESS OF DATA
-    INX             ;INCREMENT TWICE
-    INX             ;TO SKIP OVER LENGTH BYTES
-    BNE @L1         ;CHECK FOR PAGE BOUNDARY
-    INC OUTPTR+1
-@L1:
-    STX OUTPTR      ;STORE LOW BYTE
+    LDA _speechData+1   ;GET HIGH ADDRESS OF DATA
+    STA OUTPTR+1        ;STORE IN WORK POINTER
+    LDA _speechData     ;GET LOW ADDRESS OF DATA
+    STA OUTPTR          ;STORE LOW BYTE
 
-    LDY #$01
-    LDA (TABPTR),Y  ;GET HIGH LENGTH BYTE
+    LDA _speechLen+1    ;GET HIGH LENGTH BYTE
     CLC
-    ADC TABPTR+1    ;AND ADD TO BASE ADDRESS
-    STA ENDPTR+1    ;STORE END ADDRESS
-    DEY
-    LDA (TABPTR),Y  ;GET LOW LENGTH BYTE
+    ADC _speechData+1   ;AND ADD TO BASE ADDRESS
+    STA endptr+1        ;STORE END ADDRESS
+    LDA _speechLen      ;GET LOW LENGTH BYTE
     CLC
-    ADC TABPTR      ;AND ADD TO BASE ADDRESS
+    ADC _speechData     ;AND ADD TO BASE ADDRESS
     BCC @L2         ;CHECK FOR PAGE BOUNDARY
-    INC ENDPTR+1
+    INC endptr+1
 @L2:
-    STA ENDPTR      ;STORE END ADDRESS
+    STA endptr      ;STORE END ADDRESS
 
     LDA #$FF        ;SET BUSY FLAG
-    STA BUSY        ;AND SET PERIPHERAL CONTROL
+    STA _busy       ;AND SET PERIPHERAL CONTROL
     LDA #$0C        ;REGISTER TO RECOGNIZE
     STA PCR         ;SIGNAL FROM SPEECH CHIP
     LDA #$80        ;RAISE CTRL BIT IN REGISTER 3
@@ -93,18 +95,20 @@ IER     := $C48E
     STA IFR
     LDY #$00        ;INIT REGISTERS
     LDX #$04
+    LDA OUTPTR+1
+    CMP endptr+1
+    BCC @L1
+    BNE @L5
     LDA OUTPTR      ;CHECK FOR END OF DATA FILE
-    CMP ENDPTR
+    CMP endptr
     BCC @L1         ;IF NOT THEN CONTINUE
-    LDA OUTPTR+1    ;CHECK HIGH ADDRESS ALSO
-    CMP ENDPTR+1
-    BCC @L1         ;IF NOT THEN CONTINUE
+@L5:
     LDA #$00        ;IF END, TURN EVERYTHING OFF
     STA DURPHON     ;STORE PAUSE PHONEME
     LDA #$70        ;ZERO AMPLITUDE
     STA CTTRAMP
     LDA #$00        ;CLEAR BUSY FLAG
-    STA BUSY
+    STA _busy
     LDA #$02        ;CLEAR INTERRUPT ENABLE
     STA IER         ;IN 6522
     LDA #$FF
