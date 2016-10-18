@@ -7,7 +7,8 @@
 ;
 
 
-    .export _setupSpeech, _numIRQs, _speechData, _speechLen, _busy
+    .export _setupSpeech, _speechData, _speechLen, _speechBusy
+    .export _outptr, _endptr
 ;    .interruptor speechIRQ
 
 
@@ -29,11 +30,11 @@ IER     := $C48E
 
 .DATA
 speechIRQ:      .byte   $60, <_interr, >_interr   ; RTS plus two dummy bytes
-_numIRQs:       .byte   $00
 _speechData:    .byte   $00, $00
 _speechLen:     .byte   $00, $00
-endptr:         .byte   $00, $00
-_busy:          .byte   $00
+_outptr:        .byte   $00, $00
+_endptr:        .byte   $00, $00
+_speechBusy:    .byte   $00
 
 
 .CODE
@@ -58,29 +59,29 @@ _busy:          .byte   $00
     LDA _speechLen+1    ;GET HIGH LENGTH BYTE
     CLC
     ADC _speechData+1   ;AND ADD TO BASE ADDRESS
-    STA endptr+1        ;STORE END ADDRESS
+    STA _endptr+1       ;STORE END ADDRESS
     LDA _speechLen      ;GET LOW LENGTH BYTE
     CLC
     ADC _speechData     ;AND ADD TO BASE ADDRESS
-    BCC @L2         ;CHECK FOR PAGE BOUNDARY
-    INC endptr+1
+    BCC @L2             ;CHECK FOR PAGE BOUNDARY
+    INC _endptr+1
 @L2:
-    STA endptr      ;STORE END ADDRESS
+    STA _endptr         ;STORE END ADDRESS
 
-    LDA #$FF        ;SET BUSY FLAG
-    STA _busy       ;AND SET PERIPHERAL CONTROL
-    LDA #$0C        ;REGISTER TO RECOGNIZE
-    STA PCR         ;SIGNAL FROM SPEECH CHIP
-    LDA #$80        ;RAISE CTRL BIT IN REGISTER 3
+    LDA #$FF            ;SET BUSY FLAG
+    STA _speechBusy     ;AND SET PERIPHERAL CONTROL
+    LDA #$0C            ;REGISTER TO RECOGNIZE
+    STA PCR             ;SIGNAL FROM SPEECH CHIP
+    LDA #$80            ;RAISE CTRL BIT IN REGISTER 3
     STA CTTRAMP
-    LDA #$C0        ;SET TRANSITIONED INFLECTION
-    STA DURPHON     ;MODE IN REGISTER 0
-    LDA #$70        ;LOWER CTRL BIT
+    LDA #$C0            ;SET TRANSITIONED INFLECTION
+    STA DURPHON         ;MODE IN REGISTER 0
+    LDA #$70            ;LOWER CTRL BIT
     STA CTTRAMP
-    LDA #$82        ;ENABLE 6522 INTERRUPTS
+    LDA #$82            ;ENABLE 6522 INTERRUPTS
     STA IER
-    CLI             ;CLEAR INTERRUPT MASK
-    RTS             ;RETURN TO CALLER
+    CLI                 ;CLEAR INTERRUPT MASK
+    RTS                 ;RETURN TO CALLER
 .endproc
 
 
@@ -90,18 +91,18 @@ _busy:          .byte   $00
     PHA
     TYA
     PHA
-    LDA IFR
-    BPL @L2
+;    LDA IFR
+;    BPL @L2
     LDA #$02        ;CLEAR INTERRUPT FLAG
     STA IFR
     LDY #$00        ;INIT REGISTERS
     LDX #$04
     LDA OUTPTR+1
-    CMP endptr+1
+    CMP _endptr+1
     BCC @L1
     BNE @L5
     LDA OUTPTR      ;CHECK FOR END OF DATA FILE
-    CMP endptr
+    CMP _endptr
     BCC @L1         ;IF NOT THEN CONTINUE
 @L5:
     LDA #$00        ;IF END, TURN EVERYTHING OFF
@@ -109,7 +110,7 @@ _busy:          .byte   $00
     LDA #$70        ;ZERO AMPLITUDE
     STA CTTRAMP
     LDA #$00        ;CLEAR BUSY FLAG
-    STA _busy
+    STA _speechBusy
     LDA #$02        ;CLEAR INTERRUPT ENABLE
     STA IER         ;IN 6522
     LDA #$FF
@@ -117,6 +118,10 @@ _busy:          .byte   $00
     LDA #$07
     STA DDRB
 @L2:
+    LDA OUTPTR
+    STA _outptr
+    LDA OUTPTR+1
+    STA _outptr+1
     PLA             ;RESTORE REGISTERS
     TAY
     PLA

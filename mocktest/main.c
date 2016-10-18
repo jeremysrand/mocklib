@@ -14,13 +14,7 @@
 #include <conio.h>
 
 #include "mockingboard.h"
-
-
-extern void setupSpeech(void);
-extern uint8_t *speechData;
-extern uint16_t speechLen;
-extern bool busy;
-extern uint8_t numIRQs;
+#include "speech_api.h"
 
 
 tMockingSoundRegisters soundData1 = {
@@ -73,7 +67,8 @@ uint8_t mySpeechData[] = {
     0x6B, 0xA8, 0x59, 0x32, 0xE8, 0x6A, 0xA8, 0x4D,
     0x60, 0xE7, 0x29, 0xA8, 0x41, 0x0A, 0xE8, 0x78,
     0xA8, 0x41, 0x30, 0xE8, 0x70, 0xA8, 0x39, 0xFF,
-    0xE8, 0x70, 0xA8, 0x39, 0x00, 0xE8, 0xFF, 0xFF
+    0xE8, 0x70, 0xA8, 0x39, 0x00, 0xE8, 0xFF, 0xFF,
+    0xFF, 0xFF
 };
 
 
@@ -106,13 +101,11 @@ int main(void)
         return 0;
     printf("\n");
     
-    speechData = mySpeechData;
-    speechLen = sizeof(mySpeechData) - 1;
-    setupSpeech();
-    while (!kbhit()) {
-        //printf("numIRQs = %d\n", numIRQs);
+    speakMessage(mySpeechData, sizeof(mySpeechData));
+    while (speechIsBusy()) {
     }
     
+    printf("\nDone speaking\n");
     cgetc();
     
     return 0;
