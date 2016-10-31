@@ -34,7 +34,7 @@ bool speakMessage(uint8_t *data, uint16_t dataLen)
         return false;
     
     speechData = data;
-    speechLen = dataLen;
+    speechLen = dataLen + 1;
     setupSpeech();
     
     return true;
