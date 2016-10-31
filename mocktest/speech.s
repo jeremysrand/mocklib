@@ -91,8 +91,8 @@ _speechBusy:    .byte   $00
     PHA
     TYA
     PHA
-;    LDA IFR
-;    BPL @L2
+    LDA IFR
+    BPL @L2
     LDA #$02        ;CLEAR INTERRUPT FLAG
     STA IFR
     LDY #$00        ;INIT REGISTERS
