@@ -15,15 +15,6 @@
 
 bool speechIsBusy(void)
 {
-    static uint16_t old_outptr = 0;
-    if (old_outptr == 0) {
-        printf("endptr=%x\n", endptr);
-    }
-    if (old_outptr != outptr) {
-        old_outptr = outptr;
-        printf("%x ", old_outptr);
-    }
-    //printf("busy=0x%x, outptr=0x%x, endptr=0x%x\n", speechBusy, outptr, endptr);
     return (speechBusy != 0);
 }
 

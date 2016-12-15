@@ -13,10 +13,9 @@
 extern uint8_t *speechData;
 extern uint16_t speechLen;
 extern uint8_t speechBusy;
-extern uint16_t outptr;
-extern uint16_t endptr;
 
 extern void setupSpeech(void);
+extern void unsetupSpeech(void);
 
 
 #endif /* speech_h */
