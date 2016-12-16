@@ -35,6 +35,15 @@ _outptr:                    .byte   $00, $00
 _endptr:                    .byte   $00, $00
 _mockingBoardSpeechBusy:    .byte   $00
 _mockingBoardSpeechPlaying: .byte   $00
+
+; This is a JMP instruction followed by the address of the old interrupt vector.
+; It serves two purposes:
+;    - The interrupt handler in this file can jump to this location to jump to the
+;      old interrupt vector
+;    - This code can restore the old vector when the speech code is shutdown
+; Better would be to intergrate into the cc65 IRQ functionality but I found I couldn't
+; make that work for some unknown reason.  Instead, this interrupt service routine
+; chains the cc65 one.
 _irqLandingPad:             .byte   $4C, $00, $00
 
 
