@@ -12,6 +12,7 @@
 #include <stdio.h>
 
 #include "mockingboard.h"
+#include "mockingboard_speech.h"
 
 
 // Defines
@@ -25,20 +26,21 @@
 // Globals
 
 // Addresses for the two 6522's (assuming slot 4 for now)
-static uint8_t *gMockPortB[NUM_SOUND_CHIPS]    = { (uint8_t *)0xc400, (uint8_t *)0xc480 };
-static uint8_t *gMockPortA[NUM_SOUND_CHIPS]    = { (uint8_t *)0xc401, (uint8_t *)0xc481 };
-static uint8_t *gMockDataDirB[NUM_SOUND_CHIPS] = { (uint8_t *)0xc402, (uint8_t *)0xc482 };
-static uint8_t *gMockDataDirA[NUM_SOUND_CHIPS] = { (uint8_t *)0xc403, (uint8_t *)0xc483 };
+static uint8_t *gMockPortB[NUM_SOUND_CHIPS]    = { (uint8_t *)0xc000, (uint8_t *)0xc080 };
+static uint8_t *gMockPortA[NUM_SOUND_CHIPS]    = { (uint8_t *)0xc001, (uint8_t *)0xc081 };
+static uint8_t *gMockDataDirB[NUM_SOUND_CHIPS] = { (uint8_t *)0xc002, (uint8_t *)0xc082 };
+static uint8_t *gMockDataDirA[NUM_SOUND_CHIPS] = { (uint8_t *)0xc003, (uint8_t *)0xc083 };
 
 static uint8_t gMockingBoardInitialized = false;
+static uint8_t gMockingBoardSpeechInitialized = false;
 
 
-static uint8_t *mapIOPointer(uint8_t slot, uint8_t *ptr)
+static uint8_t *mapIOPointer(tSlot slot, uint8_t *ptr)
 {
     uint16_t temp1 = (uint16_t)ptr;
     uint16_t temp2 = slot;
     
-    temp2 << 8;
+    temp2 <<= 8;
     temp1 &= 0xf0ff;
     
     temp1 |= temp2;
@@ -46,7 +48,8 @@ static uint8_t *mapIOPointer(uint8_t slot, uint8_t *ptr)
     return ptr;
 }
 
-void mockingBoardInit(tSlot slot)
+
+void mockingBoardInit(tSlot slot, bool hasSpeechChip)
 {
     tSoundChip soundChip;
     
@@ -55,18 +58,38 @@ void mockingBoardInit(tSlot slot)
     }
     
     for (soundChip = SOUND_CHIP_1; soundChip < NUM_SOUND_CHIPS; soundChip++) {
-#if 0
         gMockPortB[soundChip] = mapIOPointer(slot, gMockPortB[soundChip]);
         gMockPortA[soundChip] = mapIOPointer(slot, gMockPortA[soundChip]);
         gMockDataDirB[soundChip] = mapIOPointer(slot, gMockDataDirB[soundChip]);
         gMockDataDirA[soundChip] = mapIOPointer(slot, gMockDataDirA[soundChip]);
-#endif
         
         *(gMockDataDirA[soundChip]) = 0xff;     // Set port A for output
         *(gMockDataDirB[soundChip]) = 0x7;      // Set port B for output
     }
     
+    if (hasSpeechChip) {
+        if (gMockingBoardSpeechInitialized) {
+            mockingBoardSpeechShutdown();
+        }
+        mockingBoardSpeechInit(slot);
+        gMockingBoardSpeechInitialized = true;
+    } else if (gMockingBoardSpeechInitialized) {
+        mockingBoardSpeechShutdown();
+        gMockingBoardSpeechInitialized = false;
+    }
+    
     gMockingBoardInitialized = true;
+}
+
+
+void mockingBoardShutdown(void)
+{
+    if (gMockingBoardSpeechInitialized) {
+        mockingBoardSpeechShutdown();
+        gMockingBoardSpeechInitialized = false;
+    }
+    
+    gMockingBoardInitialized = false;
 }
 
 
@@ -103,6 +126,9 @@ void mockingBoardTableAccess(tSoundChip soundChip, tMockingSoundRegisters *regis
     volatile uint8_t *ptr = gMockPortA[soundChip];
     uint8_t index;
     
+    if (!gMockingBoardInitialized)
+        return;
+    
     mockingBoardReset(soundChip);
     for (index = 0; index < 16; index++) {
         *ptr = index;
@@ -111,4 +137,32 @@ void mockingBoardTableAccess(tSoundChip soundChip, tMockingSoundRegisters *regis
         mockingBoardWrite(soundChip);
         data++;
     }
+}
+
+
+bool mockingBoardSpeechIsBusy(void)
+{
+    return (mockingBoardSpeechBusy != 0);
+}
+
+
+bool mockingBoardSpeechIsPlaying(void)
+{
+    return (mockingBoardSpeechPlaying != 0);
+}
+
+
+bool mockingBoardSpeak(uint8_t *data, uint16_t dataLen)
+{
+    if (!gMockingBoardSpeechInitialized)
+        return false;
+    
+    if (mockingBoardSpeechIsBusy())
+        return false;
+    
+    mockingBoardSpeechData = data;
+    mockingBoardSpeechLen = dataLen + 1;
+    mockingBoardSpeakPriv();
+    
+    return true;
 }

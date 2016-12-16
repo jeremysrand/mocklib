@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		9D16BCE21D9E070B005EE214 /* speech.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = speech.s; sourceTree = "<group>"; };
-		9D49929C1DB5C5F700606789 /* speech.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = speech.h; sourceTree = "<group>"; };
-		9D49929D1DB5C65200606789 /* speech_api.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = speech_api.c; sourceTree = "<group>"; };
-		9D49929E1DB5C65200606789 /* speech_api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = speech_api.h; sourceTree = "<group>"; };
+		9D16BCE21D9E070B005EE214 /* mockingboard_speech.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = mockingboard_speech.s; sourceTree = "<group>"; };
+		9D49929C1DB5C5F700606789 /* mockingboard_speech.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mockingboard_speech.h; sourceTree = "<group>"; };
 		9DB3C98C1D84A11600395532 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		9DB3C98D1D84A11600395532 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		9DB3C98F1D84A11600395532 /* AppleCommander.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = AppleCommander.jar; path = make/AppleCommander.jar; sourceTree = "<group>"; };
@@ -39,10 +37,8 @@
 				9DB3C98C1D84A11600395532 /* main.c */,
 				9DB3C99C1D84A21E00395532 /* mockingboard.c */,
 				9DB3C99D1D84A21E00395532 /* mockingboard.h */,
-				9D16BCE21D9E070B005EE214 /* speech.s */,
-				9D49929C1DB5C5F700606789 /* speech.h */,
-				9D49929D1DB5C65200606789 /* speech_api.c */,
-				9D49929E1DB5C65200606789 /* speech_api.h */,
+				9D16BCE21D9E070B005EE214 /* mockingboard_speech.s */,
+				9D49929C1DB5C5F700606789 /* mockingboard_speech.h */,
 				9DB3C98D1D84A11600395532 /* Makefile */,
 				9DB3C98E1D84A11600395532 /* make */,
 			);

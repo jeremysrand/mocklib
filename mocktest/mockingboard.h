@@ -10,6 +10,7 @@
 #define __mocktest__mockingboard__
 
 
+#include <stdbool.h>
 #include <stdint.h>
 
 
@@ -111,13 +112,18 @@ typedef struct tMockingSoundRegisters {
 
 // API
 
-void mockingBoardInit(tSlot slot);
+extern void mockingBoardInit(tSlot slot, bool hasSpeechChip);
+extern void mockingBoardShutdown(void);
 
-void mockingBoardLatch(tSoundChip soundChip);
-void mockingBoardWrite(tSoundChip soundChip);
-void mockingBoardReset(tSoundChip soundChip);
+extern void mockingBoardLatch(tSoundChip soundChip);
+extern void mockingBoardWrite(tSoundChip soundChip);
+extern void mockingBoardReset(tSoundChip soundChip);
 
-void mockingBoardTableAccess(tSoundChip soundChip, tMockingSoundRegisters *registers);
+extern void mockingBoardTableAccess(tSoundChip soundChip, tMockingSoundRegisters *registers);
+
+extern bool mockingBoardSpeechIsBusy(void);
+extern bool mockingBoardSpeechIsPlaying(void);
+extern bool mockingBoardSpeak(uint8_t *data, uint16_t dataLen);
 
 
 #endif /* defined(__mocktest__mockingboard__) */

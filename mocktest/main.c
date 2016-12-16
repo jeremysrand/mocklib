@@ -14,7 +14,6 @@
 #include <conio.h>
 
 #include "mockingboard.h"
-#include "speech_api.h"
 
 
 tMockingSoundRegisters soundData1 = {
@@ -80,7 +79,7 @@ void delay(void)
 
 int main(void)
 {
-    mockingBoardInit(4);
+    mockingBoardInit(4, false);
     
     printf("HELLO, WORLD!\n");
     
@@ -96,16 +95,19 @@ int main(void)
     
     cgetc();
     printf("RUN SPEECH TEST (Y/N) ");
-    if (cgetc() != 'Y')
-        return 0;
-    printf("\n");
-    
-    speakMessage(mySpeechData, sizeof(mySpeechData));
-    while (speechIsBusy()) {
+    if (cgetc() == 'Y') {
+        printf("\n");
+        
+        mockingBoardInit(4, true);
+        mockingBoardSpeak(mySpeechData, sizeof(mySpeechData));
+        while (mockingBoardSpeechIsBusy()) {
+        }
+        
+        printf("\nDone speaking\n");
+        cgetc();
     }
     
-    printf("\nDone speaking\n");
-    cgetc();
+    mockingBoardShutdown();
     
     return 0;
 }
