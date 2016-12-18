@@ -8,6 +8,7 @@
 
 /* Begin PBXFileReference section */
 		9D16BCE21D9E070B005EE214 /* mockingboard_speech.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = mockingboard_speech.s; sourceTree = "<group>"; };
+		9D2D42431E064633005EEBDD /* a2e.stdmou.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = a2e.stdmou.s; sourceTree = "<group>"; };
 		9D49929C1DB5C5F700606789 /* mockingboard_speech.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mockingboard_speech.h; sourceTree = "<group>"; };
 		9DB3C98C1D84A11600395532 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		9DB3C98D1D84A11600395532 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -39,6 +40,7 @@
 				9DB3C99D1D84A21E00395532 /* mockingboard.h */,
 				9D16BCE21D9E070B005EE214 /* mockingboard_speech.s */,
 				9D49929C1DB5C5F700606789 /* mockingboard_speech.h */,
+				9D2D42431E064633005EEBDD /* a2e.stdmou.s */,
 				9DB3C98D1D84A11600395532 /* Makefile */,
 				9DB3C98E1D84A11600395532 /* make */,
 			);

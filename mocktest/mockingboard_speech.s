@@ -147,7 +147,6 @@ readChip:
 .endproc
 
 
-
 .proc _mockInterrupt
 ; If we have a 6522 interrupt, jump to L4.
     ldx #IFR

@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <conio.h>
+#include <mouse.h>
 
 #include "mockingboard.h"
 
@@ -70,6 +71,9 @@ uint8_t mySpeechData[] = {
 };
 
 
+extern char a2e_stdmou_mou;
+
+
 void delay(void)
 {
     int i;
@@ -96,15 +100,32 @@ int main(void)
     cgetc();
     printf("RUN SPEECH TEST (Y/N) ");
     if (cgetc() == 'Y') {
+        bool mouseInstalled = false;
+        
         printf("\n");
         
         mockingBoardInit(4, true);
+        
+        if (mouse_install(&mouse_def_callbacks, &a2e_stdmou_mou) == 0) {
+            mouseInstalled = true;
+        }
+        
         mockingBoardSpeak(mySpeechData, sizeof(mySpeechData));
         while (mockingBoardSpeechIsBusy()) {
+            if (mouseInstalled) {
+                struct mouse_info mouseInfo;
+                
+                mouse_info(&mouseInfo);
+                printf("X:%3d Y:%3d %s\n", mouseInfo.pos.x, mouseInfo.pos.y,
+                       ((mouseInfo.buttons != 0) ? "PRESSED" : ""));
+            }
         }
         
         printf("\nDone speaking\n");
         cgetc();
+        
+        if (mouseInstalled)
+            mouse_uninstall();
     }
     
     mockingBoardShutdown();
