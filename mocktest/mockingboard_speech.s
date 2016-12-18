@@ -10,6 +10,7 @@
     .export _mockingBoardSpeechInit, _mockingBoardSpeechShutdown, _mockingBoardSpeakPriv
     .export _mockingBoardSpeechData, _mockingBoardSpeechLen
     .export _mockingBoardSpeechBusy, _mockingBoardSpeechPlaying
+    .interruptor mock_irq
 
 
 TMPPTR  := $FB           ; Temporary pointer used in interrupt handler
@@ -36,15 +37,9 @@ _endptr:                    .byte   $00, $00
 _mockingBoardSpeechBusy:    .byte   $00
 _mockingBoardSpeechPlaying: .byte   $00
 
-; This is a JMP instruction followed by the address of the old interrupt vector.
-; It serves two purposes:
-;    - The interrupt handler in this file can jump to this location to jump to the
-;      old interrupt vector
-;    - This code can restore the old vector when the speech code is shutdown
-; Better would be to intergrate into the cc65 IRQ functionality but I found I couldn't
-; make that work for some unknown reason.  Instead, this interrupt service routine
-; chains the cc65 one.
-_irqLandingPad:             .byte   $4C, $00, $00
+mock_irq:      .byte   $60
+               .lobytes _mockInterrupt
+               .hibytes _mockInterrupt
 
 
 .CODE
@@ -69,18 +64,10 @@ readChip:
     sta writeChip+2
     sta readChip+2
 
-; Save the old interrupt vector
-    lda IRQL
-    sta _irqLandingPad+1
-    lda IRQH
-    sta _irqLandingPad+2
+; Write a jump instruction at mock_irq to turn on our handler
+    lda #$4c
+    sta mock_irq
 
-; Set the interrupt vector to point to the interrupt service
-; routine.
-    lda #<_interr
-    sta IRQL
-    lda #>_interr
-    sta IRQH
     cli
     rts
 .endproc
@@ -89,11 +76,10 @@ readChip:
 .proc _mockingBoardSpeechShutdown
     sei
 
-; Restore the old interrupt vector
-    lda _irqLandingPad+1
-    sta IRQL
-    lda _irqLandingPad+2
-    sta IRQH
+; Write a RTS instruction at mock_irq to disable our handler
+    lda #$60
+    sta mock_irq
+
     cli
     rts
 .endproc
@@ -161,29 +147,19 @@ readChip:
 .endproc
 
 
-.proc _interr
-; Save the accumulator and X registers
-    pha
-    txa
-    pha
 
+.proc _mockInterrupt
 ; If we have a 6522 interrupt, jump to L4.
     ldx #IFR
     jsr readChip
     bmi @L4
 
-; Otherwise restore the accumulator and X registers and jump
-; to the old interrupt handler.
-    pla
-    tax
-    pla
-    jmp _irqLandingPad
+; Otherwise clear the carry to indicate we didn't handle the interrupt
+; and return to the caller.
+    clc
+    rts
 
 @L4:
-; Save the Y register also
-    tya
-    pha
-
 ; Clear the interrupt flag
     lda #$02
     ldx #IFR
@@ -227,15 +203,9 @@ readChip:
     jsr writeChip
 
 @L2:
-; Restore registers
-    pla
-    tay
-    pla
-    tax
-    pla
-
-; Return from interrupt
-    rti
+; Set the carry flag to indicate we handled the interrupt and return to the caller.
+    sec
+    rts
 
 @L1:
 
@@ -294,4 +264,3 @@ readChip:
 ; Finish the interrupt handler
     jmp @L2
 .endproc
-
