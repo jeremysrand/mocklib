@@ -88,13 +88,13 @@ int main(void)
     printf("HELLO, WORLD!\n");
     
     while (!kbhit()) {
-        mockingBoardTableAccess(SOUND_CHIP_1, &soundData1);
+        mockingBoardPlaySound(SPEAKER_LEFT, &soundData1);
         delay();
-        mockingBoardReset(SOUND_CHIP_1);
+        mockingBoardStopSound(SPEAKER_LEFT);
         
-        mockingBoardTableAccess(SOUND_CHIP_2, &soundData2);
+        mockingBoardPlaySound(SPEAKER_RIGHT, &soundData2);
         delay();
-        mockingBoardReset(SOUND_CHIP_2);
+        mockingBoardStopSound(SPEAKER_RIGHT);
     }
     
     cgetc();

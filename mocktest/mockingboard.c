@@ -22,6 +22,19 @@
 #define RESET_COMMAND 0x0
 #define THROUGH_PORT_B 0x4
 
+#define MOCKINGBOARD_LATCH(soundChip) writeCommand((soundChip), LATCH_COMMAND)
+#define MOCKINGBOARD_WRITE(soundChip) writeCommand((soundChip), WRITE_COMMAND)
+#define MOCKINGBOARD_RESET(soundChip) writeCommand((soundChip), RESET_COMMAND)
+
+
+// Typedefs
+
+typedef enum {
+    SOUND_CHIP_1 = 0,
+    SOUND_CHIP_2 = 1,
+    NUM_SOUND_CHIPS = 2
+} tMockingBoardSoundChip;
+
 
 // Globals
 
@@ -34,6 +47,8 @@ static uint8_t *gMockDataDirA[NUM_SOUND_CHIPS] = { (uint8_t *)0xc003, (uint8_t *
 static uint8_t gMockingBoardInitialized = false;
 static uint8_t gMockingBoardSpeechInitialized = false;
 
+
+// Implementation
 
 static uint8_t *mapIOPointer(tSlot slot, uint8_t *ptr)
 {
@@ -51,7 +66,7 @@ static uint8_t *mapIOPointer(tSlot slot, uint8_t *ptr)
 
 void mockingBoardInit(tSlot slot, bool hasSpeechChip)
 {
-    tSoundChip soundChip;
+    tMockingBoardSoundChip soundChip;
     
     if (sizeof(tMockingSoundRegisters) != 16) {
         printf("The sound registers must be 16 bytes long!\n");
@@ -93,7 +108,7 @@ void mockingBoardShutdown(void)
 }
 
 
-static void writeCommand(tSoundChip soundChip, uint8_t command)
+static void writeCommand(tMockingBoardSoundChip soundChip, uint8_t command)
 {
     volatile uint8_t *ptr = gMockPortB[soundChip];
     
@@ -102,25 +117,7 @@ static void writeCommand(tSoundChip soundChip, uint8_t command)
 }
 
 
-void mockingBoardLatch(tSoundChip soundChip)
-{
-    writeCommand(soundChip, LATCH_COMMAND);
-}
-
-
-void mockingBoardWrite(tSoundChip soundChip)
-{
-    writeCommand(soundChip, WRITE_COMMAND);
-}
-
-
-void mockingBoardReset(tSoundChip soundChip)
-{
-    writeCommand(soundChip, RESET_COMMAND);
-}
-
-
-void mockingBoardTableAccess(tSoundChip soundChip, tMockingSoundRegisters *registers)
+static void mockingBoardTableAccess(tMockingBoardSoundChip soundChip, tMockingSoundRegisters *registers)
 {
     uint8_t *data = (uint8_t *)registers;
     volatile uint8_t *ptr = gMockPortA[soundChip];
@@ -129,13 +126,37 @@ void mockingBoardTableAccess(tSoundChip soundChip, tMockingSoundRegisters *regis
     if (!gMockingBoardInitialized)
         return;
     
-    mockingBoardReset(soundChip);
+    MOCKINGBOARD_RESET(soundChip);
     for (index = 0; index < 16; index++) {
         *ptr = index;
-        mockingBoardLatch(soundChip);
+        MOCKINGBOARD_LATCH(soundChip);
         *ptr = *data;
-        mockingBoardWrite(soundChip);
+        MOCKINGBOARD_WRITE(soundChip);
         data++;
+    }
+}
+
+
+void mockingBoardPlaySound(tMockingBoardSpeaker speaker, tMockingSoundRegisters *registers)
+{
+    if ((speaker & SPEAKER_LEFT) != 0) {
+        mockingBoardTableAccess(SOUND_CHIP_1, registers);
+    }
+    
+    if ((speaker & SPEAKER_RIGHT) != 0) {
+        mockingBoardTableAccess(SOUND_CHIP_2, registers);
+    }
+}
+
+
+void mockingBoardStopSound(tMockingBoardSpeaker speaker)
+{
+    if ((speaker & SPEAKER_LEFT) != 0) {
+        MOCKINGBOARD_RESET(SOUND_CHIP_1);
+    }
+    
+    if ((speaker & SPEAKER_RIGHT) != 0) {
+        MOCKINGBOARD_RESET(SOUND_CHIP_2);
     }
 }
 

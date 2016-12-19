@@ -91,11 +91,13 @@
 
 typedef uint8_t tSlot;
 
+
 typedef enum {
-    SOUND_CHIP_1 = 0,
-    SOUND_CHIP_2 = 1,
-    NUM_SOUND_CHIPS = 2
-} tSoundChip;
+    SPEAKER_NONE = 0,
+    SPEAKER_LEFT = (1 << 0),
+    SPEAKER_RIGHT = (1 << 1),
+    SPEAKER_BOTH = (1 << 0) | (1 << 1)
+} tMockingBoardSpeaker;
 
 
 typedef struct tMockingSoundRegisters {
@@ -115,11 +117,8 @@ typedef struct tMockingSoundRegisters {
 extern void mockingBoardInit(tSlot slot, bool hasSpeechChip);
 extern void mockingBoardShutdown(void);
 
-extern void mockingBoardLatch(tSoundChip soundChip);
-extern void mockingBoardWrite(tSoundChip soundChip);
-extern void mockingBoardReset(tSoundChip soundChip);
-
-extern void mockingBoardTableAccess(tSoundChip soundChip, tMockingSoundRegisters *registers);
+extern void mockingBoardPlaySound(tMockingBoardSpeaker speaker, tMockingSoundRegisters *registers);
+extern void mockingBoardStopSound(tMockingBoardSpeaker speaker);
 
 extern bool mockingBoardSpeechIsBusy(void);
 extern bool mockingBoardSpeechIsPlaying(void);
