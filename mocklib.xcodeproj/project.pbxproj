@@ -22,12 +22,14 @@
 		9DB3C9961D84A11600395532 /* V2Make.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; name = V2Make.scpt; path = make/V2Make.scpt; sourceTree = "<group>"; };
 		9DB3C99C1D84A21E00395532 /* mockingboard.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mockingboard.c; sourceTree = "<group>"; };
 		9DB3C99D1D84A21E00395532 /* mockingboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mockingboard.h; sourceTree = "<group>"; };
+		9DF03B131E0E5623000016D3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		9DB3C9851D84A11600395532 = {
 			isa = PBXGroup;
 			children = (
+				9DF03B131E0E5623000016D3 /* README.md */,
 				9DB3C98B1D84A11600395532 /* mocklib */,
 			);
 			sourceTree = "<group>";
