@@ -1,0 +1,242 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		9D16BCE21D9E070B005EE214 /* mockingboard_speech.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = mockingboard_speech.s; sourceTree = "<group>"; };
+		9D2D42431E064633005EEBDD /* a2e.stdmou.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = a2e.stdmou.s; sourceTree = "<group>"; };
+		9D49929C1DB5C5F700606789 /* mockingboard_speech.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mockingboard_speech.h; sourceTree = "<group>"; };
+		9DB3C98C1D84A11600395532 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		9DB3C98D1D84A11600395532 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		9DB3C98F1D84A11600395532 /* AppleCommander.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = AppleCommander.jar; path = make/AppleCommander.jar; sourceTree = "<group>"; };
+		9DB3C9901D84A11600395532 /* createDiskImage */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = createDiskImage; path = make/createDiskImage; sourceTree = "<group>"; };
+		9DB3C9911D84A11600395532 /* DevApple.vii */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = DevApple.vii; path = make/DevApple.vii; sourceTree = "<group>"; };
+		9DB3C9921D84A11600395532 /* dos33_template.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; name = dos33_template.dsk; path = make/dos33_template.dsk; sourceTree = "<group>"; };
+		9DB3C9931D84A11600395532 /* head.mk */ = {isa = PBXFileReference; lastKnownFileType = text; name = head.mk; path = make/head.mk; sourceTree = "<group>"; };
+		9DB3C9941D84A11600395532 /* prodos_template.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; name = prodos_template.dsk; path = make/prodos_template.dsk; sourceTree = "<group>"; };
+		9DB3C9951D84A11600395532 /* tail.mk */ = {isa = PBXFileReference; lastKnownFileType = text; name = tail.mk; path = make/tail.mk; sourceTree = "<group>"; };
+		9DB3C9961D84A11600395532 /* V2Make.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; name = V2Make.scpt; path = make/V2Make.scpt; sourceTree = "<group>"; };
+		9DB3C99C1D84A21E00395532 /* mockingboard.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mockingboard.c; sourceTree = "<group>"; };
+		9DB3C99D1D84A21E00395532 /* mockingboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mockingboard.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		9DB3C9851D84A11600395532 = {
+			isa = PBXGroup;
+			children = (
+				9DB3C98B1D84A11600395532 /* mocklib */,
+			);
+			sourceTree = "<group>";
+		};
+		9DB3C98B1D84A11600395532 /* mocklib */ = {
+			isa = PBXGroup;
+			children = (
+				9DB3C98C1D84A11600395532 /* main.c */,
+				9DB3C99C1D84A21E00395532 /* mockingboard.c */,
+				9DB3C99D1D84A21E00395532 /* mockingboard.h */,
+				9D16BCE21D9E070B005EE214 /* mockingboard_speech.s */,
+				9D49929C1DB5C5F700606789 /* mockingboard_speech.h */,
+				9D2D42431E064633005EEBDD /* a2e.stdmou.s */,
+				9DB3C98D1D84A11600395532 /* Makefile */,
+				9DB3C98E1D84A11600395532 /* make */,
+			);
+			name = mocklib;
+			path = mocktest;
+			sourceTree = "<group>";
+		};
+		9DB3C98E1D84A11600395532 /* make */ = {
+			isa = PBXGroup;
+			children = (
+				9DB3C98F1D84A11600395532 /* AppleCommander.jar */,
+				9DB3C9901D84A11600395532 /* createDiskImage */,
+				9DB3C9911D84A11600395532 /* DevApple.vii */,
+				9DB3C9921D84A11600395532 /* dos33_template.dsk */,
+				9DB3C9931D84A11600395532 /* head.mk */,
+				9DB3C9941D84A11600395532 /* prodos_template.dsk */,
+				9DB3C9951D84A11600395532 /* tail.mk */,
+				9DB3C9961D84A11600395532 /* V2Make.scpt */,
+			);
+			name = make;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		9DB3C98A1D84A11600395532 /* mocklib */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "-C mocktest $(ACTION)";
+			buildConfigurationList = 9DB3C9991D84A11600395532 /* Build configuration list for PBXLegacyTarget "mocklib" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = mocklib;
+			passBuildSettingsInEnvironment = 1;
+			productName = mocktest;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		9DB3C9861D84A11600395532 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Jeremy Rand";
+				TargetAttributes = {
+					9DB3C98A1D84A11600395532 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9DB3C9891D84A11600395532 /* Build configuration list for PBXProject "mocklib" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9DB3C9851D84A11600395532;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DB3C98A1D84A11600395532 /* mocklib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		9DB3C9971D84A11600395532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		9DB3C9981D84A11600395532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		9DB3C99A1D84A11600395532 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9DB3C99B1D84A11600395532 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DB3C9891D84A11600395532 /* Build configuration list for PBXProject "mocklib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DB3C9971D84A11600395532 /* Debug */,
+				9DB3C9981D84A11600395532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DB3C9991D84A11600395532 /* Build configuration list for PBXLegacyTarget "mocklib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DB3C99A1D84A11600395532 /* Debug */,
+				9DB3C99B1D84A11600395532 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DB3C9861D84A11600395532 /* Project object */;
+}
