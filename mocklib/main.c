@@ -15,6 +15,7 @@
 #include <mouse.h>
 
 #include "mockingboard.h"
+#include "drivers/a2_mouse_drv.h"
 
 
 tMockingSoundRegisters soundData1 = {
@@ -71,9 +72,6 @@ uint8_t mySpeechData[] = {
 };
 
 
-extern char a2e_stdmou_mou;
-
-
 void delay(void)
 {
     int i;
@@ -106,7 +104,7 @@ int main(void)
         
         mockingBoardInit(4, true);
         
-        if (mouse_install(&mouse_def_callbacks, &a2e_stdmou_mou) == 0) {
+        if (mouse_install(&mouse_def_callbacks, &a2_mouse_drv) == 0) {
             mouseInstalled = true;
         }
         
