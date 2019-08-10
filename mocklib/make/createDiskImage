@@ -7,7 +7,7 @@ merlinStartAddr() {
 
 if [ $# -lt 5 ]
 then
-    echo USAGE: $0 '<AppleCommander> <machine> <diskimage> <binary>'
+    echo USAGE: $0 '<AppleCommander> <machine> <diskimage> <binary> <startaddress> <otherfilesordirs...>'
     exit 1
 fi
 
@@ -318,7 +318,7 @@ do
     # to copy to the disk image.
     if [ -f "$ITEM" ] && echo "$ITEM" | grep '\.tok$' > /dev/null
     then
-        DESTFILE=`echo "$ITEM" | sed 's/\.tok$//'`
+        DESTFILE=`basename "$ITEM" | sed 's/\.tok$//'`
         "$JAVA" -jar "$APPLECOMMANDER" -p "$DISKIMAGE" "$DESTFILE" "$BASICFILETYPE" 0x801 < "$ITEM"
         continue
     fi
@@ -363,9 +363,9 @@ do
         # If the file type is text, convert the line feeds to carriage return
         if [ $FILETYPE = txt ] || [ $FILETYPE = T ]
         then
-            tr '\n' '\r' < $FILE | "$JAVA" -jar "$OLDPWD/$APPLECOMMANDER" $TRANSFERARG "$OLDPWD/$DISKIMAGE" "$DESTFILE" $FILETYPE
+            tr '\n' '\r' < $FILE | "$JAVA" -jar "$OLDPWD/$APPLECOMMANDER" $TRANSFERARG "$DISKIMAGE" "$DESTFILE" $FILETYPE
         else
-            "$JAVA" -jar "$OLDPWD/$APPLECOMMANDER" $TRANSFERARG "$OLDPWD/$DISKIMAGE" "$DESTFILE" $FILETYPE < $FILE
+            "$JAVA" -jar "$OLDPWD/$APPLECOMMANDER" $TRANSFERARG "$DISKIMAGE" "$DESTFILE" $FILETYPE < $FILE
         fi
     done
 

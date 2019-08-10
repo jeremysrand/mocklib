@@ -7,136 +7,142 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D2D1A3A21795DB7003BCE06 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A3921795DB7003BCE06 /* main.c */; };
-		9D2D1A3C21795DB7003BCE06 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A3B21795DB7003BCE06 /* Makefile */; };
-		9D2D1A3F21795DB7003BCE06 /* AppleCommander.jar in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2D1A3E21795DB7003BCE06 /* AppleCommander.jar */; };
-		9D2D1A4121795DB7003BCE06 /* bastokenizer-tools-bt-0.2.0.jar in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2D1A4021795DB7003BCE06 /* bastokenizer-tools-bt-0.2.0.jar */; };
-		9D2D1A4321795DB7003BCE06 /* createDiskImage in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D2D1A4221795DB7003BCE06 /* createDiskImage */; };
-		9D2D1A4521795DB7003BCE06 /* bt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D2D1A4421795DB7003BCE06 /* bt */; };
-		9D2D1A4721795DB7003BCE06 /* DevApple.vii in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D2D1A4621795DB7003BCE06 /* DevApple.vii */; };
-		9D2D1A4921795DB7003BCE06 /* dos33_template.dsk in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D2D1A4821795DB7003BCE06 /* dos33_template.dsk */; };
-		9D2D1A4B21795DB7003BCE06 /* errorFilter.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D2D1A4A21795DB7003BCE06 /* errorFilter.sh */; };
-		9D2D1A4D21795DB7003BCE06 /* head.mk in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D2D1A4C21795DB7003BCE06 /* head.mk */; };
-		9D2D1A4F21795DB7003BCE06 /* prodos_template.dsk in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D2D1A4E21795DB7003BCE06 /* prodos_template.dsk */; };
-		9D2D1A5121795DB7003BCE06 /* tail.mk in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D2D1A5021795DB7003BCE06 /* tail.mk */; };
-		9D2D1A5321795DB7003BCE06 /* V2Make.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D2D1A5221795DB7003BCE06 /* V2Make.scpt */; };
-		9D2D1A5621795DB7003BCE06 /* mocklib.xcscheme in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D2D1A5521795DB7003BCE06 /* mocklib.xcscheme */; };
-		9D2D1A6321795DF3003BCE06 /* mockingboard.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6121795DF3003BCE06 /* mockingboard.c */; };
-		9D2D1A6421795DF3003BCE06 /* mockingboard_speech.s in Sources */ = {isa = PBXBuildFile; fileRef = 9D2D1A6221795DF3003BCE06 /* mockingboard_speech.s */; };
+		9DDCD7FE22FE6B1A00B52C02 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 9DDCD7FD22FE6B1A00B52C02 /* Makefile */; };
+		9DDCD80122FE6B1A00B52C02 /* AppleCommander.jar in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDCD80022FE6B1A00B52C02 /* AppleCommander.jar */; };
+		9DDCD80322FE6B1A00B52C02 /* bastokenizer-tools-bt-0.2.0.jar in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDCD80222FE6B1A00B52C02 /* bastokenizer-tools-bt-0.2.0.jar */; };
+		9DDCD80522FE6B1A00B52C02 /* createDiskImage in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DDCD80422FE6B1A00B52C02 /* createDiskImage */; };
+		9DDCD80722FE6B1A00B52C02 /* bt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DDCD80622FE6B1A00B52C02 /* bt */; };
+		9DDCD80922FE6B1A00B52C02 /* DevApple.vii in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DDCD80822FE6B1A00B52C02 /* DevApple.vii */; };
+		9DDCD80B22FE6B1A00B52C02 /* dos33_template.dsk in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DDCD80A22FE6B1A00B52C02 /* dos33_template.dsk */; };
+		9DDCD80D22FE6B1A00B52C02 /* errorFilter.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DDCD80C22FE6B1A00B52C02 /* errorFilter.sh */; };
+		9DDCD80F22FE6B1A00B52C02 /* head.mk in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DDCD80E22FE6B1A00B52C02 /* head.mk */; };
+		9DDCD81122FE6B1A00B52C02 /* prodos_template.dsk in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DDCD81022FE6B1A00B52C02 /* prodos_template.dsk */; };
+		9DDCD81322FE6B1A00B52C02 /* tail.mk in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DDCD81222FE6B1A00B52C02 /* tail.mk */; };
+		9DDCD81522FE6B1A00B52C02 /* V2Make.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DDCD81422FE6B1A00B52C02 /* V2Make.scpt */; };
+		9DDCD81822FE6B1A00B52C02 /* mocklib.xcscheme in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9DDCD81722FE6B1A00B52C02 /* mocklib.xcscheme */; };
+		9DDCD82E22FE6B5E00B52C02 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9DDCD82922FE6B5E00B52C02 /* main.c */; };
+		9DDCD82F22FE6B5E00B52C02 /* mockingboard_speech.s in Sources */ = {isa = PBXBuildFile; fileRef = 9DDCD82B22FE6B5E00B52C02 /* mockingboard_speech.s */; };
+		9DDCD83022FE6B5E00B52C02 /* mockingboard.c in Sources */ = {isa = PBXBuildFile; fileRef = 9DDCD82D22FE6B5E00B52C02 /* mockingboard.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9D2D1A3421795DB7003BCE06 /* CopyFiles */ = {
+		9DDCD7F722FE6B1A00B52C02 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				9D2D1A4F21795DB7003BCE06 /* prodos_template.dsk in CopyFiles */,
-				9D2D1A5621795DB7003BCE06 /* mocklib.xcscheme in CopyFiles */,
-				9D2D1A4521795DB7003BCE06 /* bt in CopyFiles */,
-				9D2D1A4921795DB7003BCE06 /* dos33_template.dsk in CopyFiles */,
-				9D2D1A4321795DB7003BCE06 /* createDiskImage in CopyFiles */,
-				9D2D1A5321795DB7003BCE06 /* V2Make.scpt in CopyFiles */,
-				9D2D1A4D21795DB7003BCE06 /* head.mk in CopyFiles */,
-				9D2D1A4721795DB7003BCE06 /* DevApple.vii in CopyFiles */,
-				9D2D1A4B21795DB7003BCE06 /* errorFilter.sh in CopyFiles */,
-				9D2D1A5121795DB7003BCE06 /* tail.mk in CopyFiles */,
+				9DDCD81122FE6B1A00B52C02 /* prodos_template.dsk in CopyFiles */,
+				9DDCD81822FE6B1A00B52C02 /* mocklib.xcscheme in CopyFiles */,
+				9DDCD80722FE6B1A00B52C02 /* bt in CopyFiles */,
+				9DDCD80B22FE6B1A00B52C02 /* dos33_template.dsk in CopyFiles */,
+				9DDCD80522FE6B1A00B52C02 /* createDiskImage in CopyFiles */,
+				9DDCD81522FE6B1A00B52C02 /* V2Make.scpt in CopyFiles */,
+				9DDCD80F22FE6B1A00B52C02 /* head.mk in CopyFiles */,
+				9DDCD80922FE6B1A00B52C02 /* DevApple.vii in CopyFiles */,
+				9DDCD80D22FE6B1A00B52C02 /* errorFilter.sh in CopyFiles */,
+				9DDCD81322FE6B1A00B52C02 /* tail.mk in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9D2D1A3621795DB7003BCE06 /* doNotBuild */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = doNotBuild; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D2D1A3921795DB7003BCE06 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		9D2D1A3B21795DB7003BCE06 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		9D2D1A3E21795DB7003BCE06 /* AppleCommander.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = AppleCommander.jar; path = make/AppleCommander.jar; sourceTree = "<group>"; };
-		9D2D1A4021795DB7003BCE06 /* bastokenizer-tools-bt-0.2.0.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "bastokenizer-tools-bt-0.2.0.jar"; path = "make/bastokenizer-tools-bt-0.2.0.jar"; sourceTree = "<group>"; };
-		9D2D1A4221795DB7003BCE06 /* createDiskImage */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = createDiskImage; path = make/createDiskImage; sourceTree = "<group>"; };
-		9D2D1A4421795DB7003BCE06 /* bt */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = bt; path = make/bt; sourceTree = "<group>"; };
-		9D2D1A4621795DB7003BCE06 /* DevApple.vii */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = DevApple.vii; path = make/DevApple.vii; sourceTree = "<group>"; };
-		9D2D1A4821795DB7003BCE06 /* dos33_template.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; name = dos33_template.dsk; path = make/dos33_template.dsk; sourceTree = "<group>"; };
-		9D2D1A4A21795DB7003BCE06 /* errorFilter.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = errorFilter.sh; path = make/errorFilter.sh; sourceTree = "<group>"; };
-		9D2D1A4C21795DB7003BCE06 /* head.mk */ = {isa = PBXFileReference; lastKnownFileType = text; name = head.mk; path = make/head.mk; sourceTree = "<group>"; };
-		9D2D1A4E21795DB7003BCE06 /* prodos_template.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; name = prodos_template.dsk; path = make/prodos_template.dsk; sourceTree = "<group>"; };
-		9D2D1A5021795DB7003BCE06 /* tail.mk */ = {isa = PBXFileReference; lastKnownFileType = text; name = tail.mk; path = make/tail.mk; sourceTree = "<group>"; };
-		9D2D1A5221795DB7003BCE06 /* V2Make.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; name = V2Make.scpt; path = make/V2Make.scpt; sourceTree = "<group>"; };
-		9D2D1A5521795DB7003BCE06 /* mocklib.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = mocklib.xcscheme; path = mocklib.xcodeproj/xcshareddata/xcschemes/mocklib.xcscheme; sourceTree = SOURCE_ROOT; };
-		9D2D1A5F21795DF3003BCE06 /* mockingboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mockingboard.h; sourceTree = "<group>"; };
-		9D2D1A6021795DF3003BCE06 /* mockingboard_speech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mockingboard_speech.h; sourceTree = "<group>"; };
-		9D2D1A6121795DF3003BCE06 /* mockingboard.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mockingboard.c; sourceTree = "<group>"; };
-		9D2D1A6221795DF3003BCE06 /* mockingboard_speech.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = mockingboard_speech.s; sourceTree = "<group>"; };
-		9D2D1A6521795F60003BCE06 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9DDCD7F122FE6B1A00B52C02 /* mocklib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mocklib; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DDCD7F422FE6B1A00B52C02 /* mocklib.dsk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mocklib.dsk; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DDCD7F922FE6B1A00B52C02 /* doNotBuild */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = doNotBuild; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DDCD7FD22FE6B1A00B52C02 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		9DDCD80022FE6B1A00B52C02 /* AppleCommander.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = AppleCommander.jar; path = make/AppleCommander.jar; sourceTree = "<group>"; };
+		9DDCD80222FE6B1A00B52C02 /* bastokenizer-tools-bt-0.2.0.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "bastokenizer-tools-bt-0.2.0.jar"; path = "make/bastokenizer-tools-bt-0.2.0.jar"; sourceTree = "<group>"; };
+		9DDCD80422FE6B1A00B52C02 /* createDiskImage */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = createDiskImage; path = make/createDiskImage; sourceTree = "<group>"; };
+		9DDCD80622FE6B1A00B52C02 /* bt */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = bt; path = make/bt; sourceTree = "<group>"; };
+		9DDCD80822FE6B1A00B52C02 /* DevApple.vii */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = DevApple.vii; path = make/DevApple.vii; sourceTree = "<group>"; };
+		9DDCD80A22FE6B1A00B52C02 /* dos33_template.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; name = dos33_template.dsk; path = make/dos33_template.dsk; sourceTree = "<group>"; };
+		9DDCD80C22FE6B1A00B52C02 /* errorFilter.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = errorFilter.sh; path = make/errorFilter.sh; sourceTree = "<group>"; };
+		9DDCD80E22FE6B1A00B52C02 /* head.mk */ = {isa = PBXFileReference; lastKnownFileType = text; name = head.mk; path = make/head.mk; sourceTree = "<group>"; };
+		9DDCD81022FE6B1A00B52C02 /* prodos_template.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; name = prodos_template.dsk; path = make/prodos_template.dsk; sourceTree = "<group>"; };
+		9DDCD81222FE6B1A00B52C02 /* tail.mk */ = {isa = PBXFileReference; lastKnownFileType = text; name = tail.mk; path = make/tail.mk; sourceTree = "<group>"; };
+		9DDCD81422FE6B1A00B52C02 /* V2Make.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; name = V2Make.scpt; path = make/V2Make.scpt; sourceTree = "<group>"; };
+		9DDCD81722FE6B1A00B52C02 /* mocklib.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = mocklib.xcscheme; path = mocklib.xcodeproj/xcshareddata/xcschemes/mocklib.xcscheme; sourceTree = SOURCE_ROOT; };
+		9DDCD82722FE6B3400B52C02 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9DDCD82822FE6B4400B52C02 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9DDCD82922FE6B5E00B52C02 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		9DDCD82A22FE6B5E00B52C02 /* mockingboard_speech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mockingboard_speech.h; sourceTree = "<group>"; };
+		9DDCD82B22FE6B5E00B52C02 /* mockingboard_speech.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = mockingboard_speech.s; sourceTree = "<group>"; };
+		9DDCD82C22FE6B5E00B52C02 /* mockingboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mockingboard.h; sourceTree = "<group>"; };
+		9DDCD82D22FE6B5E00B52C02 /* mockingboard.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mockingboard.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9D2D1A3321795DB7003BCE06 /* Frameworks */ = {
+		9DDCD7F622FE6B1A00B52C02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D2D1A3F21795DB7003BCE06 /* AppleCommander.jar in Frameworks */,
-				9D2D1A4121795DB7003BCE06 /* bastokenizer-tools-bt-0.2.0.jar in Frameworks */,
+				9DDCD80122FE6B1A00B52C02 /* AppleCommander.jar in Frameworks */,
+				9DDCD80322FE6B1A00B52C02 /* bastokenizer-tools-bt-0.2.0.jar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9D2D1A2C21795DB7003BCE06 = {
+		9DDCD7EA22FE6B1A00B52C02 = {
 			isa = PBXGroup;
 			children = (
-				9D2D1A6521795F60003BCE06 /* README.md */,
-				9D2D1A3821795DB7003BCE06 /* mocklib */,
-				9D2D1A3721795DB7003BCE06 /* Products */,
+				9DDCD82722FE6B3400B52C02 /* README.md */,
+				9DDCD82822FE6B4400B52C02 /* LICENSE */,
+				9DDCD7FA22FE6B1A00B52C02 /* mocklib */,
+				9DDCD7F222FE6B1A00B52C02 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9D2D1A3721795DB7003BCE06 /* Products */ = {
+		9DDCD7F222FE6B1A00B52C02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9D2D1A3621795DB7003BCE06 /* doNotBuild */,
+				9DDCD7F122FE6B1A00B52C02 /* mocklib */,
+				9DDCD7F422FE6B1A00B52C02 /* mocklib.dsk */,
+				9DDCD7F922FE6B1A00B52C02 /* doNotBuild */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9D2D1A3821795DB7003BCE06 /* mocklib */ = {
+		9DDCD7FA22FE6B1A00B52C02 /* mocklib */ = {
 			isa = PBXGroup;
 			children = (
-				9D2D1A3921795DB7003BCE06 /* main.c */,
-				9D2D1A6021795DF3003BCE06 /* mockingboard_speech.h */,
-				9D2D1A6221795DF3003BCE06 /* mockingboard_speech.s */,
-				9D2D1A6121795DF3003BCE06 /* mockingboard.c */,
-				9D2D1A5F21795DF3003BCE06 /* mockingboard.h */,
-				9D2D1A3B21795DB7003BCE06 /* Makefile */,
-				9D2D1A3D21795DB7003BCE06 /* make */,
-				9D2D1A5421795DB7003BCE06 /* Supporting Files */,
+				9DDCD7FD22FE6B1A00B52C02 /* Makefile */,
+				9DDCD82922FE6B5E00B52C02 /* main.c */,
+				9DDCD82A22FE6B5E00B52C02 /* mockingboard_speech.h */,
+				9DDCD82B22FE6B5E00B52C02 /* mockingboard_speech.s */,
+				9DDCD82D22FE6B5E00B52C02 /* mockingboard.c */,
+				9DDCD82C22FE6B5E00B52C02 /* mockingboard.h */,
+				9DDCD7FF22FE6B1A00B52C02 /* make */,
+				9DDCD81622FE6B1A00B52C02 /* Supporting Files */,
 			);
 			path = mocklib;
 			sourceTree = "<group>";
 		};
-		9D2D1A3D21795DB7003BCE06 /* make */ = {
+		9DDCD7FF22FE6B1A00B52C02 /* make */ = {
 			isa = PBXGroup;
 			children = (
-				9D2D1A3E21795DB7003BCE06 /* AppleCommander.jar */,
-				9D2D1A4021795DB7003BCE06 /* bastokenizer-tools-bt-0.2.0.jar */,
-				9D2D1A4221795DB7003BCE06 /* createDiskImage */,
-				9D2D1A4421795DB7003BCE06 /* bt */,
-				9D2D1A4621795DB7003BCE06 /* DevApple.vii */,
-				9D2D1A4821795DB7003BCE06 /* dos33_template.dsk */,
-				9D2D1A4A21795DB7003BCE06 /* errorFilter.sh */,
-				9D2D1A4C21795DB7003BCE06 /* head.mk */,
-				9D2D1A4E21795DB7003BCE06 /* prodos_template.dsk */,
-				9D2D1A5021795DB7003BCE06 /* tail.mk */,
-				9D2D1A5221795DB7003BCE06 /* V2Make.scpt */,
+				9DDCD80022FE6B1A00B52C02 /* AppleCommander.jar */,
+				9DDCD80222FE6B1A00B52C02 /* bastokenizer-tools-bt-0.2.0.jar */,
+				9DDCD80422FE6B1A00B52C02 /* createDiskImage */,
+				9DDCD80622FE6B1A00B52C02 /* bt */,
+				9DDCD80822FE6B1A00B52C02 /* DevApple.vii */,
+				9DDCD80A22FE6B1A00B52C02 /* dos33_template.dsk */,
+				9DDCD80C22FE6B1A00B52C02 /* errorFilter.sh */,
+				9DDCD80E22FE6B1A00B52C02 /* head.mk */,
+				9DDCD81022FE6B1A00B52C02 /* prodos_template.dsk */,
+				9DDCD81222FE6B1A00B52C02 /* tail.mk */,
+				9DDCD81422FE6B1A00B52C02 /* V2Make.scpt */,
 			);
 			name = make;
 			sourceTree = "<group>";
 		};
-		9D2D1A5421795DB7003BCE06 /* Supporting Files */ = {
+		9DDCD81622FE6B1A00B52C02 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9D2D1A5521795DB7003BCE06 /* mocklib.xcscheme */,
+				9DDCD81722FE6B1A00B52C02 /* mocklib.xcscheme */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -144,10 +150,10 @@
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
-		9D2D1A3121795DB7003BCE06 /* mocklib */ = {
+		9DDCD7EF22FE6B1A00B52C02 /* mocklib */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "-C mocklib $(ACTION)";
-			buildConfigurationList = 9D2D1A5921795DB7003BCE06 /* Build configuration list for PBXLegacyTarget "mocklib" */;
+			buildConfigurationList = 9DDCD81B22FE6B1A00B52C02 /* Build configuration list for PBXLegacyTarget "mocklib" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
@@ -160,13 +166,41 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		9D2D1A3521795DB7003BCE06 /* doNotBuild */ = {
+		9DDCD7F022FE6B1A00B52C02 /* Binary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9D2D1A5C21795DB7003BCE06 /* Build configuration list for PBXNativeTarget "doNotBuild" */;
+			buildConfigurationList = 9DDCD81E22FE6B1A00B52C02 /* Build configuration list for PBXNativeTarget "Binary" */;
 			buildPhases = (
-				9D2D1A3221795DB7003BCE06 /* Sources */,
-				9D2D1A3321795DB7003BCE06 /* Frameworks */,
-				9D2D1A3421795DB7003BCE06 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Binary;
+			productName = Binary;
+			productReference = 9DDCD7F122FE6B1A00B52C02 /* mocklib */;
+			productType = "com.apple.product-type.tool";
+		};
+		9DDCD7F322FE6B1A00B52C02 /* DiskImage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DDCD82122FE6B1A00B52C02 /* Build configuration list for PBXNativeTarget "DiskImage" */;
+			buildPhases = (
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DiskImage;
+			productName = DiskImage;
+			productReference = 9DDCD7F422FE6B1A00B52C02 /* mocklib.dsk */;
+			productType = "com.apple.product-type.tool";
+		};
+		9DDCD7F822FE6B1A00B52C02 /* doNotBuild */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DDCD82422FE6B1A00B52C02 /* Build configuration list for PBXNativeTarget "doNotBuild" */;
+			buildPhases = (
+				9DDCD7F522FE6B1A00B52C02 /* Sources */,
+				9DDCD7F622FE6B1A00B52C02 /* Frameworks */,
+				9DDCD7F722FE6B1A00B52C02 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -174,60 +208,68 @@
 			);
 			name = doNotBuild;
 			productName = doNotBuild;
-			productReference = 9D2D1A3621795DB7003BCE06 /* doNotBuild */;
+			productReference = 9DDCD7F922FE6B1A00B52C02 /* doNotBuild */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9D2D1A2D21795DB7003BCE06 /* Project object */ = {
+		9DDCD7EB22FE6B1A00B52C02 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Jeremy Rand";
 				TargetAttributes = {
-					9D2D1A3121795DB7003BCE06 = {
-						CreatedOnToolsVersion = 10.0;
+					9DDCD7EF22FE6B1A00B52C02 = {
+						CreatedOnToolsVersion = 10.3;
 					};
-					9D2D1A3521795DB7003BCE06 = {
-						CreatedOnToolsVersion = 10.0;
+					9DDCD7F022FE6B1A00B52C02 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					9DDCD7F322FE6B1A00B52C02 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					9DDCD7F822FE6B1A00B52C02 = {
+						CreatedOnToolsVersion = 10.3;
 					};
 				};
 			};
-			buildConfigurationList = 9D2D1A3021795DB7003BCE06 /* Build configuration list for PBXProject "mocklib" */;
+			buildConfigurationList = 9DDCD7EE22FE6B1A00B52C02 /* Build configuration list for PBXProject "mocklib" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 9D2D1A2C21795DB7003BCE06;
-			productRefGroup = 9D2D1A3721795DB7003BCE06 /* Products */;
+			mainGroup = 9DDCD7EA22FE6B1A00B52C02;
+			productRefGroup = 9DDCD7F222FE6B1A00B52C02 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9D2D1A3121795DB7003BCE06 /* mocklib */,
-				9D2D1A3521795DB7003BCE06 /* doNotBuild */,
+				9DDCD7EF22FE6B1A00B52C02 /* mocklib */,
+				9DDCD7F022FE6B1A00B52C02 /* Binary */,
+				9DDCD7F322FE6B1A00B52C02 /* DiskImage */,
+				9DDCD7F822FE6B1A00B52C02 /* doNotBuild */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9D2D1A3221795DB7003BCE06 /* Sources */ = {
+		9DDCD7F522FE6B1A00B52C02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D2D1A3C21795DB7003BCE06 /* Makefile in Sources */,
-				9D2D1A6421795DF3003BCE06 /* mockingboard_speech.s in Sources */,
-				9D2D1A6321795DF3003BCE06 /* mockingboard.c in Sources */,
-				9D2D1A3A21795DB7003BCE06 /* main.c in Sources */,
+				9DDCD82F22FE6B5E00B52C02 /* mockingboard_speech.s in Sources */,
+				9DDCD82E22FE6B5E00B52C02 /* main.c in Sources */,
+				9DDCD7FE22FE6B1A00B52C02 /* Makefile in Sources */,
+				9DDCD83022FE6B5E00B52C02 /* mockingboard.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		9D2D1A5721795DB7003BCE06 /* Debug */ = {
+		9DDCD81922FE6B1A00B52C02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -283,7 +325,7 @@
 			};
 			name = Debug;
 		};
-		9D2D1A5821795DB7003BCE06 /* Release */ = {
+		9DDCD81A22FE6B1A00B52C02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -332,7 +374,7 @@
 			};
 			name = Release;
 		};
-		9D2D1A5A21795DB7003BCE06 /* Debug */ = {
+		9DDCD81C22FE6B1A00B52C02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -347,7 +389,7 @@
 			};
 			name = Debug;
 		};
-		9D2D1A5B21795DB7003BCE06 /* Release */ = {
+		9DDCD81D22FE6B1A00B52C02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -359,24 +401,66 @@
 			};
 			name = Release;
 		};
-		9D2D1A5D21795DB7003BCE06 /* Debug */ = {
+		9DDCD81F22FE6B1A00B52C02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VD9FGCW36C;
+				PRODUCT_NAME = mocklib;
+			};
+			name = Debug;
+		};
+		9DDCD82022FE6B1A00B52C02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VD9FGCW36C;
+				PRODUCT_NAME = mocklib;
+			};
+			name = Release;
+		};
+		9DDCD82222FE6B1A00B52C02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VD9FGCW36C;
+				PRODUCT_NAME = mocklib.dsk;
+			};
+			name = Debug;
+		};
+		9DDCD82322FE6B1A00B52C02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VD9FGCW36C;
+				PRODUCT_NAME = mocklib.dsk;
+			};
+			name = Release;
+		};
+		9DDCD82522FE6B1A00B52C02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VD9FGCW36C;
 				GCC_PREPROCESSOR_DEFINITIONS = "__fastcall__=\"\"";
-				HEADER_SEARCH_PATHS = /usr/local/lib/cc65/include;
+				HEADER_SEARCH_PATHS = (
+					$TEMP_ROOT/mocklib.build/$CONFIGURATION/mocklib.build/DerivedSources,
+					/usr/local/share/cc65/include,
+				);
 				PRODUCT_NAME = doNotBuild;
 			};
 			name = Debug;
 		};
-		9D2D1A5E21795DB7003BCE06 /* Release */ = {
+		9DDCD82622FE6B1A00B52C02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VD9FGCW36C;
 				GCC_PREPROCESSOR_DEFINITIONS = "__fastcall__=\"\"";
-				HEADER_SEARCH_PATHS = /usr/local/lib/cc65/include;
+				HEADER_SEARCH_PATHS = (
+					$TEMP_ROOT/mocklib.build/$CONFIGURATION/mocklib.build/DerivedSources,
+					/usr/local/share/cc65/include,
+				);
 				PRODUCT_NAME = doNotBuild;
 			};
 			name = Release;
@@ -384,34 +468,52 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9D2D1A3021795DB7003BCE06 /* Build configuration list for PBXProject "mocklib" */ = {
+		9DDCD7EE22FE6B1A00B52C02 /* Build configuration list for PBXProject "mocklib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D2D1A5721795DB7003BCE06 /* Debug */,
-				9D2D1A5821795DB7003BCE06 /* Release */,
+				9DDCD81922FE6B1A00B52C02 /* Debug */,
+				9DDCD81A22FE6B1A00B52C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D2D1A5921795DB7003BCE06 /* Build configuration list for PBXLegacyTarget "mocklib" */ = {
+		9DDCD81B22FE6B1A00B52C02 /* Build configuration list for PBXLegacyTarget "mocklib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D2D1A5A21795DB7003BCE06 /* Debug */,
-				9D2D1A5B21795DB7003BCE06 /* Release */,
+				9DDCD81C22FE6B1A00B52C02 /* Debug */,
+				9DDCD81D22FE6B1A00B52C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D2D1A5C21795DB7003BCE06 /* Build configuration list for PBXNativeTarget "doNotBuild" */ = {
+		9DDCD81E22FE6B1A00B52C02 /* Build configuration list for PBXNativeTarget "Binary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D2D1A5D21795DB7003BCE06 /* Debug */,
-				9D2D1A5E21795DB7003BCE06 /* Release */,
+				9DDCD81F22FE6B1A00B52C02 /* Debug */,
+				9DDCD82022FE6B1A00B52C02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DDCD82122FE6B1A00B52C02 /* Build configuration list for PBXNativeTarget "DiskImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DDCD82222FE6B1A00B52C02 /* Debug */,
+				9DDCD82322FE6B1A00B52C02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DDCD82422FE6B1A00B52C02 /* Build configuration list for PBXNativeTarget "doNotBuild" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DDCD82522FE6B1A00B52C02 /* Debug */,
+				9DDCD82622FE6B1A00B52C02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9D2D1A2D21795DB7003BCE06 /* Project object */;
+	rootObject = 9DDCD7EB22FE6B1A00B52C02 /* Project object */;
 }
